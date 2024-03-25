@@ -1,3 +1,5 @@
 openai
 requests
 html2text
+xmltodict
+anthropic

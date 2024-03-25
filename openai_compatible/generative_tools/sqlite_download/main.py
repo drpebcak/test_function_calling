@@ -55,8 +55,6 @@ When done remove the database file and the downloaded content.
         tool_choice='auto'
     )
 
-    print ("INITIAL RESULT: ", result)
-
     while result.choices[0].finish_reason == "tool_calls":
         messages.append(result.choices[0].message)
         result = process_tool_call(client, result, model, messages, tools)
