@@ -11,4 +11,4 @@ api_key = os.environ["MISTRAL_API_KEY"]
 endpoint = os.environ["MISTRAL_ENDPOINT"]
 client = OpenAI(base_url=endpoint + "/v1", api_key=api_key)
 
-main.run(client, model="gpt-3.5-turbo")
+main.run(client, model="mistral-large-latest")

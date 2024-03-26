@@ -1,4 +1,3 @@
-import json
 import os
 import sys
 
@@ -16,6 +15,7 @@ You receive input from a user, process the input from the given instructions, an
 Your objective is to provide consistent and correct results.
 You do not need to explain the steps taken, only provide the result to the given instructions.
 You are referred to as a tool.
+You don't move to the next step until you have a result.
 """
 
 
@@ -52,13 +52,13 @@ When done remove the database file and the downloaded content.
         model=model,
         messages=messages,
         tools=tools,
-        tool_choice='auto'
+        tool_choice='auto',
+        temperature=0.00000001
     )
 
     while result.choices[0].finish_reason == "tool_calls":
         messages.append(result.choices[0].message)
         result = process_tool_call(client, result, model, messages, tools)
-        print("RESULT: ", result)
 
     # completed
     print(result.choices[0].message.content)
@@ -95,4 +95,3 @@ def process_tool_call(client: OpenAI, response, model: str, messages: list, tool
         tool_choice='auto',
         temperature=0.00000001
     )
-

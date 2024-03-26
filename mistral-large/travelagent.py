@@ -5,7 +5,7 @@ from openai import OpenAI
 
 sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'))
 
-from openai_compatible.abusive_factorial import main
+from openai_compatible.generative_tools.travelagent import main
 
 api_key = os.environ["MISTRAL_API_KEY"]
 endpoint = os.environ["MISTRAL_ENDPOINT"]

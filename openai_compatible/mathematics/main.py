@@ -8,6 +8,7 @@ You receive input from a user, process the input from the given instructions, an
 Your objective is to provide consistent and correct results.
 You do not need to explain the steps taken, only provide the result to the given instructions.
 You are referred to as a tool.
+You don't move to the next step until you have a result.
 """
 
 
@@ -150,9 +151,10 @@ def run(client: OpenAI, model: str, test: str = None):
 
     while result.choices[0].finish_reason == "tool_calls":
         messages.append(result.choices[0].message)
-        print("MESSAGES: ",messages)
+        # print("MESSAGES: ",messages)
         result = process_tool_call(client, result, model, messages, tools)
 
+    # print(result)
     print(result.choices[0].message.content)
 
 def process_tool_call(client: OpenAI, response, model: str, messages: list, tools: list):
