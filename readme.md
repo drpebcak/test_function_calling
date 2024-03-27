@@ -20,8 +20,8 @@ python gpt-4-turbo-preview/bob.py
 ```
 
 (Optional) If you set the `BASE_URL` to local model and want to back to use OpenAI, please do:
-```
- export BASE_URL=https://api.openai.com/v1/
+```bash
+export BASE_URL=https://api.openai.com/v1/
 ```
 
 ## Use Rubra -- OpenAI Compatible Local LLM Server
